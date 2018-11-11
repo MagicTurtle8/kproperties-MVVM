@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:bind="http://schemas.android.com/apk/res/android">
-
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
                 name="property"
@@ -22,6 +21,7 @@
                 android:layout_height="wrap_content">
 
             <ImageView
+                    app:imageUrl="@{property.imageUrl}"
                     android:id="@+id/image_view"
                     tools:background="@color/colorPrimary"
                     android:layout_width="100dp"
@@ -40,6 +40,7 @@
                     android:orientation="vertical">
 
                 <TextView
+                        android:text="@{@string/prefix_dollar_sign(property.displayPrice)}"
                         android:textColor="@android:color/black"
                         android:id="@+id/text_view_price"
                         android:layout_width="wrap_content"
@@ -48,6 +49,7 @@
                         tools:text="$200000" />
 
                 <TextView
+                        android:text="@{property.description}"
                         android:layout_marginTop="4dp"
                         android:maxLines="1"
                         android:ellipsize="end"
@@ -58,6 +60,7 @@
                         tools:text="3 Bedroom plus media Terraceeeeeeee" />
 
                 <TextView
+                        android:text="@{property.address1}"
                         android:layout_marginTop="8dp"
                         android:maxLines="1"
                         android:ellipsize="end"
@@ -68,6 +71,7 @@
                         tools:text="123 Evergreen Terrace" />
 
                 <TextView
+                        android:text="@{property.address2}"
                         android:maxLines="1"
                         android:ellipsize="end"
                         android:id="@+id/text_view_address_2"
@@ -83,6 +87,7 @@
                         android:layout_height="wrap_content">
 
                     <TextView
+                            android:text="@{String.valueOf(property.bedrooms)}"
                             android:textStyle="bold"
                             android:drawablePadding="4dp"
                             android:gravity="center"
@@ -96,6 +101,7 @@
                             android:layout_height="wrap_content" />
 
                     <TextView
+                            android:text="@{String.valueOf(property.bathrooms)}"
                             android:textStyle="bold"
                             android:drawablePadding="4dp"
                             android:gravity="center"
@@ -109,6 +115,7 @@
                             android:layout_height="wrap_content" />
 
                     <TextView
+                            android:text="@{String.valueOf(property.carSpace)}"
                             android:textStyle="bold"
                             android:drawablePadding="4dp"
                             android:gravity="center"

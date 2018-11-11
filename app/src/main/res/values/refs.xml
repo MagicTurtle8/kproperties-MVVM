@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This resource's value is a reference to the single-pane layout.
+      it has a resource id R.layout.activity_materdetail-->
+<resources>
+    <item name="activity_masterdetail" type="layout">@layout/activity_main</item>
+</resources>

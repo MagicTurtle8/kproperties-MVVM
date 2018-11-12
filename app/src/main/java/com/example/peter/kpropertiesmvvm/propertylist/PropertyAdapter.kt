@@ -10,12 +10,11 @@ import com.example.peter.kpropertiesmvvm.databinding.ListItemPropertyPremiumBind
 import com.example.peter.kpropertiesmvvm.repository.model.Property
 
 
-
-
 /**
  * RecyclerView adapter for property listings
  */
-class PropertyAdapter(private val propertyList: ArrayList<Property>, val context: Context, private val viewModel: PropertyViewModel): RecyclerView.Adapter<PropertyViewHolder>() {
+class PropertyAdapter(private val propertyList: ArrayList<Property>, val context: Context, val viewModel: PropertyViewModel): RecyclerView.Adapter<PropertyViewHolder>() {
+
 
     // Determine if the item is premium or regular
     // Type 0 for regular and 1 for premium
@@ -32,10 +31,12 @@ class PropertyAdapter(private val propertyList: ArrayList<Property>, val context
 
         return if (viewType == 0) {
             val propertyBinding = ListItemPropertyBinding.inflate(LayoutInflater.from(context), parent, false)
+            propertyBinding.viewModel = viewModel
             PropertyViewHolder(propertyBinding)
         } else {
-            val propertyBinding = ListItemPropertyPremiumBinding.inflate(LayoutInflater.from(context), parent, false)
-            PropertyViewHolder(propertyBinding)
+            val propertyBindingPremium = ListItemPropertyPremiumBinding.inflate(LayoutInflater.from(context), parent, false)
+            propertyBindingPremium.viewModel = viewModel
+            PropertyViewHolder(propertyBindingPremium)
         }
     }
 
@@ -51,26 +52,6 @@ class PropertyAdapter(private val propertyList: ArrayList<Property>, val context
             holder.setPremiumData(property)
         }
 
-        /**
-        holder.descriptionTextView.text = propertyList[position].description
-        holder.priceTextView.text = context.getString(R.string.prefix_dollar_sign, propertyList[position].displayPrice)
-        holder.address1TextView.text = propertyList[position].address1
-        holder.address2TextView.text = propertyList[position].address2
-        holder.bedroomsTextView.text = propertyList[position].bedrooms.toString()
-        holder.bathroomsTextView.text = propertyList[position].bathrooms.toString()
-        holder.carSpacesTextView.text = propertyList[position].carSpace.toString()
-
-        holder.rootCardView.setOnClickListener {
-            // Get the viewModel to set the propertyId into its repository. Which will then update
-            // the viewModel's LiveData and hence notifying any views that are observing.
-            viewModel.updatePropertyId(propertyList[position].id)
-        }
-
-
-        Glide.with(context)
-            .load(propertyList[position].imageUrl)
-            .into(holder.imageView)
-        **/
     }
 
     override fun getItemCount(): Int {

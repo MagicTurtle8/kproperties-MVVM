@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
                 name="property"
-                  type="com.example.peter.kpropertiesmvvm.repository.model.Property"/>
+                type="com.example.peter.kpropertiesmvvm.repository.model.Property"/>
+
+        <variable
+                name="viewModel"
+                type="com.example.peter.kpropertiesmvvm.PropertyViewModel"/>
     </data>
 
     <android.support.v7.widget.CardView
-            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:onClick="@{() -> viewModel.updatePropertyId(property.id)}"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/card_view_root"
+            android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp">
+            android:layout_margin="8dp" android:focusable="true">
 
         <RelativeLayout
                 android:layout_margin="8dp"
@@ -28,7 +33,7 @@
                     android:layout_height="100dp"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" />
+                    android:layout_alignParentEnd="true"/>
 
             <LinearLayout
                     android:layout_toLeftOf="@id/image_view"
@@ -46,7 +51,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="18sp"
-                        tools:text="$200000" />
+                        tools:text="$200000"/>
 
                 <TextView
                         android:text="@{property.description}"
@@ -57,7 +62,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="15sp"
-                        tools:text="3 Bedroom plus media Terraceeeeeeee" />
+                        tools:text="3 Bedroom plus media Terraceeeeeeee"/>
 
                 <TextView
                         android:text="@{property.address1}"
@@ -68,7 +73,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
-                        tools:text="123 Evergreen Terrace" />
+                        tools:text="123 Evergreen Terrace"/>
 
                 <TextView
                         android:text="@{property.address2}"
@@ -78,7 +83,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
-                        tools:text="SpringField 2766" />
+                        tools:text="SpringField 2766"/>
 
                 <LinearLayout
                         android:layout_marginTop="8dp"
@@ -98,7 +103,7 @@
                             tools:text="1"
                             android:id="@+id/text_view_num_bedrooms"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"/>
 
                     <TextView
                             android:text="@{String.valueOf(property.bathrooms)}"
@@ -112,7 +117,7 @@
                             tools:text="1"
                             android:id="@+id/text_view_num_bathrooms"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"/>
 
                     <TextView
                             android:text="@{String.valueOf(property.carSpace)}"
@@ -126,7 +131,7 @@
                             tools:text="1"
                             android:id="@+id/text_view_num_car_spaces"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"/>
                 </LinearLayout>
             </LinearLayout>
         </RelativeLayout>

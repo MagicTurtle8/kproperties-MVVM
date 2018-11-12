@@ -4,11 +4,16 @@
         <variable
                 name="property"
                 type="com.example.peter.kpropertiesmvvm.repository.model.Property"/>
+
+        <variable
+                name="viewModel"
+                type="com.example.peter.kpropertiesmvvm.PropertyViewModel"/>
     </data>
 
     <android.support.v7.widget.CardView
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
+            android:onClick="@{() -> viewModel.updatePropertyId(property.id)}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/card_view_root"
